@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:tellmewhatineed/pages/finalpage.dart';
-import 'package:tellmewhatineed/pages/prodrecommend.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:tellmewhatineed/pages/wishlist.dart';
-import 'package:tellmewhatineed/pages/scannedprod.dart';
-import 'package:tellmewhatineed/pages/prodexpire.dart';
-import 'package:tellmewhatineed/main.dart';
+
+
+import 'sanitizerrecomm.dart';
+import 'sanitizerrecomm.dart';
+import 'similarproducts.dart';
 
 
 
-class SanitizerRec extends StatelessWidget {
+class ProdSugg extends StatelessWidget {
+   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,10 +35,7 @@ class SanitizerRec extends StatelessWidget {
                 Padding( 
                   padding: EdgeInsets.only(right: 20.0),
                   child: GestureDetector(
-                    onTap: () {
-                       Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => ProdExpire()));
-                    },
+                    onTap: () {},
                     child: Icon(
                       Icons.notifications,
                       size: 26.0,
@@ -59,57 +57,7 @@ class SanitizerRec extends StatelessWidget {
                 ),
               ],
             ),  
-            drawer: new Drawer(
-               child: ListView(
-            children: <Widget>[
-              ListTile(
-                title: Text("Categories"),
-                trailing: Icon(Icons.arrow_right_rounded)
-              ),
-              ListTile(
-                title: Text("Brands"),
-                trailing: Icon(Icons.arrow_right_rounded),
-              ),
-              ListTile(
-                title: Text("Select Price"),
-                trailing: Icon(Icons.arrow_right_rounded),
-              ),
-              ListTile(
-                title: Text("Scan Product"),
-                trailing: Icon(Icons.arrow_right_rounded),
-                onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => ScanProduct()));
-              },
-              ),
-              ListTile(
-                title: Text("Latest Products"),
-                trailing: Icon(Icons.arrow_right_rounded),
-                onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => SimilarProducts()));
-              },
-              ),
-               ListTile(
-                title: Text("Wish List"),
-               trailing: Icon(Icons.arrow_right_rounded),
-                onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => WishList()));
-              },
-              ),
-              SizedBox(height:30.0),
-              ListTile(
-                title: Text("Log Out"),
-                 onTap: () {
-                   Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) =>Final()));
-                },
-              ),
-
-    ],
-  ),
-            ),
+            drawer: new Drawer(),
             body: Column(
               children: [
                 SizedBox(height: 100.0),
@@ -125,14 +73,14 @@ class SanitizerRec extends StatelessWidget {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
-                          image: AssetImage('assets/3.jpg'),
+                          image: AssetImage('assets/13.jpg'),
                           fit: BoxFit.contain
                         )
                       ),
               ),
               SizedBox(height: 30),
               Text(
-                'Using a hand sanitizer is also very',
+                '   With the COVID-19 pandemic  ',
                 style: TextStyle(
                   fontFamily: 'ProductSans',
                   fontSize: 22.0,
@@ -142,7 +90,7 @@ class SanitizerRec extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                'important,  especially when you' + '\'' +'re not',
+                'it is super important that you wash',
                 style: TextStyle(
                   fontFamily: 'ProductSans',
                   fontSize: 20.0,
@@ -152,7 +100,7 @@ class SanitizerRec extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                'near any water resources!',
+                '     your hands very often   ',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'ProductSans',
@@ -164,7 +112,7 @@ class SanitizerRec extends StatelessWidget {
               
             SizedBox(height: 30),
             Text(
-                'Would you also like to purchase',
+                'Would you like to purchase a hand soap?',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'ProductSans',
@@ -175,26 +123,46 @@ class SanitizerRec extends StatelessWidget {
                 )
               ),
               SizedBox(height: 15),
-            Text(
-                'a hand sanitizer?',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'ProductSans',
-                  fontSize: 20.0,
-                 color: Colors.black,
-                 fontWeight: FontWeight.bold
-
-                )
-              ),
-              SizedBox(height: 30),
+           
+            
               Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-
+                  
                    RaisedButton( 
+                     
+                    onPressed: () {
+                       showDialog(context: context,builder:(context){
+                        
+                           return AlertDialog(
+                            
+                             title: Text("How often do you wash Your hands a day?"),
+                             content: Text("                 (Very, We hope!)"),
+                             backgroundColor: Color(0xffFCDBC1),
+                             actions: <Widget>[
+                                RaisedButton( 
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) =>ProdRecommend()));
+                        builder: (context) => SanitizerRec()));
+                    },
+                   
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: BorderSide(color: Colors.transparent)
+                      ),
+                      
+                    child: Text( 
+                      'Submit',
+                      style: 
+                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold),
+                    )
+                    ,
+                  ),
+
+                             ],
+                           );
+                       });
                     },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(

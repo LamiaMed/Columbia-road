@@ -6,6 +6,8 @@ import 'package:tellmewhatineed/pages/scannedprod.dart';
 import 'package:tellmewhatineed/pages/prodexpire.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:tellmewhatineed/main.dart';
+import 'package:tellmewhatineed/pages/prodsugg.dart';
+
 
 
 
@@ -41,8 +43,9 @@ class _WishListState extends State<WishList> {
             padding: EdgeInsets.only(right: 20.0),
             child: GestureDetector(
               onTap: () {
+                
                  Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => ProdExpire()));
+                        builder: (context) => ProdSugg()));
               },
               child: Icon(
                 Icons.notifications,
